@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public int enemyHealth = 20;
 
     [Header("Sistema de Mantimentos (Recurso: 1 a 10)")]
+    [Tooltip("Ative para testar todas as cartas livremente sem travar por falta de mantimentos")]
+    public bool infiniteSuppliesForTesting = true;
+
     [Tooltip("Capacidade máxima atual de mantimentos do jogador")]
     public int playerMaxSupplies = 1;
     [Tooltip("Mantimentos disponíveis para gastar no turno atual")]
@@ -74,6 +77,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public bool CanAfford(int cost, bool isPlayer)
     {
+        if (infiniteSuppliesForTesting) return true;
+
         if (isPlayer)
             return playerCurrentSupplies >= cost;
         else

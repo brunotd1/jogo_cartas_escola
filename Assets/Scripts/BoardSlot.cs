@@ -80,7 +80,7 @@ public class BoardSlot : MonoBehaviour, IDropHandler
         currentCard = card;
         card.transform.SetParent(transform);
         card.transform.localPosition = Vector3.zero;
-        card.transform.localScale = Vector3.one;
+        card.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
 
         Debug.Log($"Carta {card.cardData.cardName} posicionada no slot [{row}, {col}]!");
     }
